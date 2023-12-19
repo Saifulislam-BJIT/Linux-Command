@@ -102,3 +102,11 @@ nano is a command-line file editor that is available by default in many Linux di
 nano permissions.txt
 ```
 Since there isn't an auto-saving feature in nano, it’s important to save your work before exiting. To save a file in nano, use the keyboard shortcut `Ctrl + O`. You’ll be prompted to confirm the file name before saving. To exit out of nano, use the keyboard shortcut `Ctrl + X`.
+
+## Permission commands
+1. user: the owner of the file
+2. group: a larger group that the owner is a part of
+3. other: all other users on the system
+```
+chmod u+rwx,g+rwx,o+rwx login_sessions.txt
+```
