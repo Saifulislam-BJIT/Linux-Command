@@ -110,3 +110,45 @@ Since there isn't an auto-saving feature in nano, it’s important to save your 
 ```
 chmod u+rwx,g+rwx,o+rwx login_sessions.txt
 ```
+
+## Authentication and authorization with sudo
+### useradd
+useradd command adds a user to the system.
+```
+sudo useradd -g security saiful
+sudo useradd -G finance,admin saiful
+```
+
+### usermod
+To change the primary group of an existing user, you need the -g option.
+```
+sudo usermod -g executive saiful
+sudo usermod -a -G marketing saiful
+```
+
+There are other options you can use with usermod to specify how you want to modify the user, including:
+1. -d: Changes the user’s home directory.
+2. -l: Changes the user’s login name.
+3. -L: Locks the account so the user can’t log in.
+```
+sudo usermod -d /home/saiful_islam saiful
+```
+
+### userdel
+The userdel command deletes a user from the system. The userdel command doesn’t delete the files in the user’s home directory unless you use the -r option.
+```
+sudo userdel saiful
+sudo userdel -r saiful
+```
+**`Note`**:  Instead of deleting the user, you could consider deactivating their account with usermod -L.
+
+### chown
+chown command changes ownership of a file or directory. You can use chown to change user or group ownership. 
+change the user owner of the access.txt
+```
+sudo chown fgarcia access.txt
+```
+change the group owner of access.txt to security
+```
+sudo chown :security access.txt
+```
